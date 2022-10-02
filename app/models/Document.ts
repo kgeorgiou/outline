@@ -56,7 +56,6 @@ export default class Document extends ParanoidModel {
   @observable
   id: string;
 
-  @Field
   @observable
   text: string;
 
@@ -341,13 +340,6 @@ export default class Document extends ParanoidModel {
   @action
   save = async (options?: SaveOptions | undefined) => {
     const params = this.toAPI();
-    const collaborativeEditing = this.store.rootStore.auth.team
-      ?.collaborativeEditing;
-
-    if (collaborativeEditing) {
-      delete params.text;
-    }
-
     this.isSaving = true;
 
     try {

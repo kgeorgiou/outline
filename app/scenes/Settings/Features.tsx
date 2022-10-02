@@ -41,22 +41,20 @@ function Features() {
           the experience for all team members.
         </Trans>
       </Text>
-      {team.collaborativeEditing && (
-        <SettingRow
+      <SettingRow
+        name="seamlessEdit"
+        label={t("Seamless editing")}
+        description={t(
+          `When enabled documents are always editable for team members that have permission. When disabled there is a separate editing view.`
+        )}
+      >
+        <Switch
+          id="seamlessEdit"
           name="seamlessEdit"
-          label={t("Seamless editing")}
-          description={t(
-            `When enabled documents are always editable for team members that have permission. When disabled there is a separate editing view.`
-          )}
-        >
-          <Switch
-            id="seamlessEdit"
-            name="seamlessEdit"
-            checked={team.getPreference(TeamPreference.SeamlessEdit, true)}
-            onChange={handlePreferenceChange}
-          />
-        </SettingRow>
-      )}
+          checked={team.getPreference(TeamPreference.SeamlessEdit, true)}
+          onChange={handlePreferenceChange}
+        />
+      </SettingRow>
     </Scene>
   );
 }
