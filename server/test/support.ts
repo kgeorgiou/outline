@@ -10,7 +10,6 @@ export const seed = async () => {
     const team = await Team.create(
       {
         name: "Team",
-        collaborativeEditing: false,
         authenticationProviders: [
           {
             name: "slack",

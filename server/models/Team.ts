@@ -117,10 +117,6 @@ class Team extends ParanoidModel {
   @Column
   memberCollectionCreate: boolean;
 
-  @Default(true)
-  @Column
-  collaborativeEditing: boolean;
-
   @Default("member")
   @IsIn([["viewer", "member"]])
   @Column
